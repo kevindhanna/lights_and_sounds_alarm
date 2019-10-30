@@ -1,0 +1,27 @@
+default: 
+  database: lights_and_sounds_dev
+  adapter: postgresql
+  encoding: unicode
+  pool: 2
+  timeout: 5000
+
+development:
+  database: lights_and_sounds_dev
+  adapter: postgresql
+  encoding: unicode
+  pool: 2
+  timeout: 5000
+
+test:
+  database: lights_and_sounds_test
+  adapter: postgresql
+  encoding: unicode
+  pool: 2
+  timeout: 5000
+
+production:
+  database: lights_and_sounds
+  adapter: postgresql
+  encoding: unicode
+  pool: 2
+  timeout: 5000

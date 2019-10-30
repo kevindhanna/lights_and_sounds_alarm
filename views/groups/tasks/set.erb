@@ -1,0 +1,61 @@
+<form action='/groups/<%= @group.id %>/tasks' method='post'>
+  <div class="form-group">
+    <label for="task_name">Name Your Task</label> 
+    <input id="task_name" name="task_name" placeholder="Turn Shit On" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Checkboxes</label> 
+    <div>
+      <div class="custom-control custom-checkbox custom-control-inline">
+        <input name="monday" id="checkbox_0" type="checkbox" class="custom-control-input" id='1' value="monday"> 
+        <label for="checkbox_0" class="custom-control-label">Monday</label>
+      </div>
+      <div class="custom-control custom-checkbox custom-control-inline">
+        <input name="tuesday" id="checkbox_1" type="checkbox" class="custom-control-input" value="2"> 
+        <label for="checkbox_1" class="custom-control-label">Tuesday</label>
+      </div>
+      <div class="custom-control custom-checkbox custom-control-inline">
+        <input name="wednesday" id="checkbox_2" type="checkbox" class="custom-control-input" value="4"> 
+        <label for="checkbox_2" class="custom-control-label">Wednesday</label>
+      </div>
+      <div class="custom-control custom-checkbox custom-control-inline">
+        <input name="thursday" id="checkbox_3" type="checkbox" class="custom-control-input" value="8"> 
+        <label for="checkbox_3" class="custom-control-label">Thursday</label>
+      </div>
+      <div class="custom-control custom-checkbox custom-control-inline">
+        <input name="friday" id="checkbox_4" type="checkbox" class="custom-control-input" value="16"> 
+        <label for="checkbox_4" class="custom-control-label">Friday</label>
+      </div>
+      <div class="custom-control custom-checkbox custom-control-inline">
+        <input name="saturday" id="checkbox_5" type="checkbox" class="custom-control-input" value="32"> 
+        <label for="checkbox_5" class="custom-control-label">Saturday</label>
+      </div>
+      <div class="custom-control custom-checkbox custom-control-inline">
+        <input name="sunday" id="checkbox_6" type="checkbox" class="custom-control-input" value="64"> 
+        <label for="checkbox_6" class="custom-control-label">Sunday</label>
+      </div>
+    </div>
+  </div>
+  <div class='form-group'>
+    <label for='time'>Time</label>
+    <input type="time" name="time" id='time'>
+  </div> 
+  <div class="form-group">
+      <label>Action</label> 
+      <div>
+        <div class="custom-control custom-radio custom-control-inline">
+          <input name="action" id="action_0" type="radio" class="custom-control-input" value="turn_on"> 
+          <label for="action_0" class="custom-control-label">Turn On</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+          <input name="action" id="action_1" type="radio" class="custom-control-input" value="turn_off"> 
+          <label for="action_1" class="custom-control-label">Turn Off</label>
+        </div>
+      </div>
+    </div> 
+  <div class="form-group">
+    <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+
+  
