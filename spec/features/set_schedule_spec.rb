@@ -33,6 +33,8 @@ feature 'set group schedule' do
     find_by_id("action_0").click
     click_button "Submit"
     expect(page).to have_content "Kevin's Nest"
+    expect(page).not_to have_content "No Schedules set"
+    expect(page).to have_content "test"
     expect(page).to have_link "test"
   end
 end

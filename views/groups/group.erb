@@ -1,6 +1,15 @@
 <h1><%= @group.name %></h1>
 
-No Schedules set
+<% unless @group.tasks %>
+  No Schedules set
+<% else %>
+  <ul>
+    <% @group.tasks.each do |task| %>
+    <li>task.name</li>
+    <% end %>
+  </ul>
+<% end %>
+
 <br>
 <a href='/groups/<%= @group.id %>/tasks/set'>Schedule Task</a>
 <br>
