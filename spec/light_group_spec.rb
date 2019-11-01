@@ -3,4 +3,7 @@ describe LightGroup do
   it 'knows its name' do
     expect(light_group.name).to eq 'test'
   end
+  it 'knows its hue id' do
+    expect(light_group.hue_id).to eq 1
+  end
 end
