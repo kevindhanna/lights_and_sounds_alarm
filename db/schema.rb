@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_183500) do
     t.integer "index"
     t.string "name"
     t.string "action"
-    t.integer "time"
+    t.string "time"
     t.integer "days"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

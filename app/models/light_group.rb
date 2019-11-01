@@ -10,12 +10,20 @@ class LightGroup < ActiveRecord::Base
   end
 
   def lights
-    LightGroup.hue_client.group(self.hue_id).lights
+    hue_group.lights
+  end
+
+  def set_state(params)
+    hue_group.set_state(params)
   end
 
   private 
 
   def self.hue_client
     @hue_client ||= Hue::Client.new
+  end
+
+  def hue_group
+    LightGroup.hue_client.group(self.hue_id)
   end
 end

@@ -23,6 +23,17 @@ describe LightGroup do
       expect(LightGroup.find_by(hue_id: 2).name).to eq 'test2'
     end
   end
+  
+  describe 'set_state' do
+    it 'passes the state to the Hue group' do
+      params = {on: true}
+      allow(LightGroup).to receive(:hue_client) { hue_client }
+      expect(hue_client).to receive(:group).with(light_group.hue_id)
+      expect(hue_group).to receive(:set_state).with(params)
+      
+      light_group.set_state(params)
+    end
+  end
   describe 'lights' do
     it 'gets a list of lights from the hue client' do
       allow(LightGroup).to receive(:hue_client) { hue_client }

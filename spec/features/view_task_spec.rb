@@ -7,7 +7,7 @@ feature 'view a task' do
     create_a_task
     click_link 'test task'
     expect(page).to have_content('test task')
-    expect(page).to have_content((Time.new + 5).strftime('%H:%M'))
+    expect(page).to have_content('11:11')
     expect(page).to have_content(day = Date.today.strftime("%A"))
     expect(page).to have_content('Turn on')
   end

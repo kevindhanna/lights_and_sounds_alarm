@@ -1,4 +1,12 @@
 <h1><%= @task.name %></h1>
+<a href='/tasks/<%= @task.id %>'>Test</a>
+<br>
+<% if @result == :success %>
+  Tested OK!
+<% elsif @result %>
+  Something went wrong...
+<% end %>
+<br>
 <p>Light Group: <%= @task.light_group.name %></p>
 <p>Action: <%= @task.pretty_action %></p>
 <p>

@@ -4,7 +4,7 @@ class CreateTasks < ActiveRecord::Migration[6.0]
       t.integer :group_id, :index
       t.string :name
       t.string :action
-      t.integer :time
+      t.string :time
       t.integer :days
       t.timestamps
     end
