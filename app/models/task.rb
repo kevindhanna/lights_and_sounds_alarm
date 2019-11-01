@@ -10,6 +10,10 @@ class Task < ActiveRecord::Base
     return days.join(', ')
   end
 
+  def pretty_action
+    'Turn Off'
+  end
+
   private 
 
   DAYS_HASH = {

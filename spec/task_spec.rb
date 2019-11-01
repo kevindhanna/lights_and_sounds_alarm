@@ -31,4 +31,12 @@ describe Task do
       expect(Task.pretty_days(21)).to eq "Monday, Wednesday, Friday"
     end
   end
+
+  describe 'pretty_action' do
+    it 'returns Turn Off for turn_off' do
+      test_group = LightGroup.create(hue_id: 1, name: 'test_group')
+      task = Task.create(light_group_id: test_group.hue_id, action: 'turn_off')
+      expect(task.pretty_action).to eq 'Turn Off'
+    end
+  end
 end
