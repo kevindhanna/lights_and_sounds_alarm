@@ -1,4 +1,7 @@
 feature 'set group schedule' do
+  before :each do
+    LightGroup.update_groups
+  end
   scenario 'visit schedule page' do
     days = [
       'Monday',

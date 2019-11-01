@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_01_180501) do
+ActiveRecord::Schema.define(version: 2019_11_01_183500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2019_11_01_180501) do
   end
 
   create_table "tasks", force: :cascade do |t|
-    t.integer "group_id"
+    t.integer "light_group_id"
     t.integer "index"
     t.string "name"
     t.string "action"
@@ -34,5 +34,5 @@ ActiveRecord::Schema.define(version: 2019_11_01_180501) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "tasks", "light_groups", column: "group_id", primary_key: "hue_id"
+  add_foreign_key "tasks", "light_groups", primary_key: "hue_id"
 end

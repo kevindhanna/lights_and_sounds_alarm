@@ -1,5 +1,6 @@
 feature 'list light groups' do
   scenario 'user visits home page' do
+    LightGroup.update_groups
     groups = get_group_names
     
     visit '/'

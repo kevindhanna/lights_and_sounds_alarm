@@ -1,0 +1,1 @@
+LightGroup.update_groups

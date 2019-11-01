@@ -5,7 +5,7 @@ class TaskExecutor
   end
 
   def self.execute(task)
-    group = self.hue_client.group(task.group_id)
+    group = self.hue_client.group(task.light_group_id)
     action = ACTION_KEY[task.action]
     group.set_state(action)
   end

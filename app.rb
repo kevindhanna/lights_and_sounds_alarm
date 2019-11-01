@@ -4,19 +4,19 @@ class LightsAndSoundsAlarm < Sinatra::Base
   register Sinatra::ActiveRecordExtension
 
   get '/' do
-    @groups = hue_client.groups
+    @groups = LightGroup.all
     @page = :home
     erb :template
   end
   
   get '/groups/:id' do
-    @group = hue_group(params[:id])
+    @group = LightGroup.find_by(hue_id: params[:id])
     @page = :'groups/group'
     erb :template
   end
   
   get '/groups/:id/tasks/set' do
-    @group = hue_group(params[:id])
+    @group = LightGroup.find_by(hue_id: params[:id])
     @page = :'groups/tasks/set'
     erb :template
   end
@@ -29,7 +29,7 @@ class LightsAndSoundsAlarm < Sinatra::Base
     Task.create(
       name: params[:task_name],
       time: params[:time],
-      group_id: params[:id]
+      light_group_id: params[:id]
     )
     redirect "/groups/#{params[:id]}"
   end
