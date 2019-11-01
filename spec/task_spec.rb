@@ -27,5 +27,8 @@ describe Task do
     it 'returns "Sunday" when passed 1000000' do
       expect(Task.pretty_days('1000000')).to eq 'Sunday'
     end
+    it 'returns "Monday, Wednesday Friday" when passed 10101' do
+      expect(Task.pretty_days('10101')).to eq "Monday, Wednesday, Friday"
+    end
   end
 end

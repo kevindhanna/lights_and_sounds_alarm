@@ -2,12 +2,23 @@ class Task < ActiveRecord::Base
   has_one :light_group, primary_key: :light_group_id, foreign_key: :hue_id
 
   def self.pretty_days(binary)
-    return "Monday" if binary == '1' 
-    return "Tuesday" if binary == '10' 
-    return "Wednesday" if binary == '100' 
-    return "Thursday" if binary == '1000' 
-    return "Friday" if binary == '10000' 
-    return "Saturday" if binary == '100000' 
-    "Sunday"
+    days = []
+    DAYS_HASH.each do |key, day|
+      days << day if binary.to_i(2) & key == key
+    end
+    
+    return days.join(', ')
   end
+
+  private 
+
+  DAYS_HASH = {
+    1 => "Monday",
+    2 => "Tuesday",
+    4 => "Wednesday",
+    8 => "Thursday",
+    16 => "Friday",
+    32 => "Saturday",
+    64 => "Sunday"
+  }
 end
