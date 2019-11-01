@@ -1,0 +1,10 @@
+<h1><%= @task.name %></h1>
+<p>Light Group: <%= @task.light_group.name %></p>
+<p>Action: <%= @task.pretty_action %></p>
+<p>
+  Scheduled:
+  <br>
+  <%= "#{@days}, start time: #{@task.time}" %>
+  <br>
+  Created: <%= @task.created_at %>
+</p>

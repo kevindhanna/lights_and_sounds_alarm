@@ -5,7 +5,7 @@
 <% else %>
   <ul>
     <% @group.tasks.each do |task| %>
-    <li><a href=""><%= task.name %></a></li>
+    <li><a href="/groups/<%= @group.hue_id %>/tasks/<%= task.id %>"><%= task.name %></a></li>
     <% end %>
   </ul>
 <% end %>

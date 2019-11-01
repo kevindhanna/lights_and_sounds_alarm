@@ -21,14 +21,25 @@ class LightsAndSoundsAlarm < Sinatra::Base
     erb :template
   end
 
+  get '/groups/:id/tasks/:task_id' do
+    @group = LightGroup.find_by(hue_id: params[:id])
+    @task = Task.find(params[:task_id])
+    @days = Task.pretty_days(@task.days)
+    @page = :'groups/tasks/view'
+    erb :template
+  end
+
   post '/groups/:id/tasks' do
+    time = params[:time].split(' ')[1][0..4]
     days = 0
     params.each do |key, value|
       days += value.to_i if key.to_s.include?('day')
     end
     Task.create(
       name: params[:task_name],
-      time: params[:time],
+      time: time,
+      days: days,
+      action: params[:action],
       light_group_id: params[:id]
     )
     redirect "/groups/#{params[:id]}"
