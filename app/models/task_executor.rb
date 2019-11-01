@@ -1,13 +1,9 @@
 class TaskExecutor
 
-  def self.setup
-    @hue_client = self.hue_client
-  end
-
   def self.execute(task)
-    group = self.hue_client.group(task.light_group_id)
+    light_group = self.light_group_class.find_by(hue_id: task.light_group_id)
     action = ACTION_KEY[task.action]
-    group.set_state(action)
+    light_group.set_state(action)
   end
   
   private
@@ -16,7 +12,7 @@ class TaskExecutor
     'turn_off' => {on: false}
   }
 
-  def self.hue_client
-    Hue::Client.new
+  def self.light_group_class
+    LightGroup
   end
 end

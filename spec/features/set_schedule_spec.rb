@@ -12,8 +12,7 @@ feature 'set group schedule' do
       'Saturday',
       'Sunday'
     ]
-    visit '/'
-    click_link "Kevin's Nest"
+    open_first_group
     click_link 'Schedule Task'
     days.each do |day|
       expect(page).to have_unchecked_field(day)
@@ -24,20 +23,10 @@ feature 'set group schedule' do
     expect(page).to have_field("Name Your Task")
   end
 
-  scenario 'set schedule for Kevins Nest' do
-    time = Time.new + 5
-    day = Date.today.strftime("%A")
-    visit '/'
-    click_link "Kevin's Nest"
-    click_link 'Schedule Task'
-    check day
-    fill_in 'Time', with: time
-    fill_in 'Name', with: 'test'
-    find_by_id("action_0").click
-    click_button "Submit"
-    expect(page).to have_content "Kevin's Nest"
+  scenario 'set schedule for first group' do
+    open_first_group
+    create_a_task
     expect(page).not_to have_content "No Schedules set"
-    expect(page).to have_content "test"
-    expect(page).to have_link "test"
+    expect(page).to have_link "test task"
   end
 end
