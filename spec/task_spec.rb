@@ -5,30 +5,30 @@ describe Task do
     expect(task.light_group).to eq test_group
   end
 
-  describe 'pretty_days' do
+  describe '.pretty_days' do
     it 'returns Monday when passed 1' do
-      expect(Task.pretty_days('1')).to eq 'Monday'
+      expect(Task.pretty_days(1)).to eq 'Monday'
     end
     it 'returns "Tuesday" when passed 10' do
-      expect(Task.pretty_days('10')).to eq 'Tuesday'
+      expect(Task.pretty_days(2)).to eq 'Tuesday'
     end
     it 'returns "Wednesday" when passed 100' do
-      expect(Task.pretty_days('100')).to eq 'Wednesday'
+      expect(Task.pretty_days(4)).to eq 'Wednesday'
     end
     it 'returns "Thursday" when passed 1000' do
-      expect(Task.pretty_days('1000')).to eq 'Thursday'
+      expect(Task.pretty_days(8)).to eq 'Thursday'
     end
     it 'returns "Friday" when passed 10000' do
-      expect(Task.pretty_days('10000')).to eq 'Friday'
+      expect(Task.pretty_days(16)).to eq 'Friday'
     end
     it 'returns "Saturday" when passed 100000' do
-      expect(Task.pretty_days('100000')).to eq 'Saturday'
+      expect(Task.pretty_days(32)).to eq 'Saturday'
     end
     it 'returns "Sunday" when passed 1000000' do
-      expect(Task.pretty_days('1000000')).to eq 'Sunday'
+      expect(Task.pretty_days(64)).to eq 'Sunday'
     end
     it 'returns "Monday, Wednesday Friday" when passed 10101' do
-      expect(Task.pretty_days('10101')).to eq "Monday, Wednesday, Friday"
+      expect(Task.pretty_days(21)).to eq "Monday, Wednesday, Friday"
     end
   end
 end
