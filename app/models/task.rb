@@ -11,7 +11,7 @@ class Task < ActiveRecord::Base
   end
 
   def pretty_action
-    'Turn Off'
+    self.action.sub('_', ' ').capitalize
   end
 
   private 

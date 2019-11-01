@@ -36,7 +36,12 @@ describe Task do
     it 'returns Turn Off for turn_off' do
       test_group = LightGroup.create(hue_id: 1, name: 'test_group')
       task = Task.create(light_group_id: test_group.hue_id, action: 'turn_off')
-      expect(task.pretty_action).to eq 'Turn Off'
+      expect(task.pretty_action).to eq 'Turn off'
+    end
+    it 'returns Turn On' do
+      test_group = LightGroup.create(hue_id: 1, name: 'test_group')
+      task = Task.create(light_group_id: test_group.hue_id, action: 'turn_on')
+      expect(task.pretty_action).to eq 'Turn on'
     end
   end
 end
