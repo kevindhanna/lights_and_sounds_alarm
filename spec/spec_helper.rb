@@ -15,9 +15,11 @@ Capybara.app = LightsAndSoundsAlarm
 RSpec.configure do |config|
   config.before :each do 
     Task.destroy_all
+    LightGroup.destroy_all
   end
   config.after :each do 
     Task.destroy_all
+    LightGroup.destroy_all
   end
 end
 

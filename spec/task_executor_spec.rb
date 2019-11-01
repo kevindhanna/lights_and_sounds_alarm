@@ -15,7 +15,8 @@ describe TaskExecutor do
   describe 'execute' do
     context 'given a task id' do
       it 'executes the task' do
-        task = Task.create(group_id: 6, action: 'turn_off')
+        test_group = LightGroup.create(name: 'test_group', hue_id: 1)
+        task = Task.create(group_id: test_group.hue_id, action: 'turn_off')
 
         allow(TaskExecutor).to receive(:hue_client) { hue_client }
         expect(hue_client).to receive(:group).with(task.group_id)

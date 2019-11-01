@@ -9,6 +9,10 @@ describe LightGroup do
   it 'knows its hue id' do
     expect(light_group.hue_id).to eq 1
   end
+  it 'knows its tasks' do
+    task = Task.create(group_id: light_group.hue_id)
+    expect(light_group.tasks.first).to eq task
+  end
   describe '.update_groups' do
     it 'updates the groups from the Hue hub' do
       allow(LightGroup).to receive(:hue_client) { hue_client }
