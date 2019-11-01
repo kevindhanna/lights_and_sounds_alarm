@@ -6,5 +6,8 @@ class Task < ActiveRecord::Base
     return "Tuesday" if binary == '10' 
     return "Wednesday" if binary == '100' 
     return "Thursday" if binary == '1000' 
+    return "Friday" if binary == '10000' 
+    return "Saturday" if binary == '100000' 
+    "Sunday"
   end
 end
