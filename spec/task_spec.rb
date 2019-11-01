@@ -8,8 +8,11 @@ describe Task do
   end
 
   describe 'pretty_days' do
-    it 'returns a string of days for a given binary list' do
+    it 'returns Monday when passed 1' do
       expect(Task.pretty_days(1)).to eq 'Monday'
+    end
+    it 'returns "Monday, Wednesday" when passed 5' do
+      expect(Task.pretty_days(5)).to eq 'Monday, Wednesday'
     end
   end
 end
