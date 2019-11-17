@@ -12,13 +12,14 @@ class TasksController < ApplicationController
   end
 
   def create
-    Task.create(
+    task = Task.create(
       name: params[:task_name],
       time: params[:time],
       days: binary_days(params),
       action: params[:group_action],
       light_group_id: params[:group_id]
     )
+    TaskScheduler.scehdule_task(task)
     redirect_to "/groups/#{params[:group_id]}"
   end
 
@@ -37,7 +38,7 @@ class TasksController < ApplicationController
     params.each do |key, value|
       days += value.to_i if key.to_s.include?('day')
     end
-    
+
     return days
   end
 end
