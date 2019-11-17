@@ -10,6 +10,6 @@ feature 'test a task' do
     # expect(TaskExecutor).to receive(:execute).with(Task.all.first)
     click_link 'test task'
     click_link 'Test'
-    expect(page).to have_content('Tested OK!')
+    expect(page).to have_content('success')
   end
 end

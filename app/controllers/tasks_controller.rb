@@ -12,14 +12,10 @@ class TasksController < ApplicationController
   end
 
   def create
-    days = 0
-    params.each do |key, value|
-      days += value.to_i if key.to_s.include?('day')
-    end
     Task.create(
       name: params[:task_name],
       time: params[:time],
-      days: days,
+      days: binary_days(params),
       action: params[:group_action],
       light_group_id: params[:group_id]
     )
@@ -32,5 +28,16 @@ class TasksController < ApplicationController
     redirect_link = "/groups/#{task.light_group_id}/tasks/#{task.id}"
     flash[:test_result] = result
     redirect_to redirect_link
+  end
+
+  private 
+
+  def binary_days(params)
+    days = 0
+    params.each do |key, value|
+      days += value.to_i if key.to_s.include?('day')
+    end
+    
+    return days
   end
 end

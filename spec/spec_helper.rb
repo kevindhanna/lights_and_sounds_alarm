@@ -101,4 +101,4 @@ require_relative 'helpers/hue_helper'
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
-end
+  end

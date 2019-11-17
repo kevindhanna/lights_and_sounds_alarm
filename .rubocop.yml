@@ -49,6 +49,8 @@ AllCops:
     - 'vendor/bundle/**/*'
     - 'db/**/*'
     - 'Guardfile'
+    - 'spec/spec_helper.rb'
+    - 'node_modules/**/*'
     
 
 Metrics/LineLength:
