@@ -17,6 +17,21 @@ require 'simplecov'
 require 'simplecov-console'
 require_relative 'helpers/web_helper'
 require_relative 'helpers/hue_helper'
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+  SimpleCov::Formatter::Console,
+  SimpleCov::Formatter::HTMLFormatter
+])
+SimpleCov.start "rails" do
+  add_filter "/bin"
+  add_filter "/db/"
+  add_filter "/spec/"
+  add_filter "/app/jobs/"
+  add_filter "/app/mailers/"
+  add_filter "/app/channels/"
+end
+
+
   # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
   RSpec.configure do |config|
     config.before :each do

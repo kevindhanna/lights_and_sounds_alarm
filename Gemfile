@@ -6,7 +6,6 @@ ruby '2.6.3'
 gem 'hue'
 gem 'sidekiq'
 gem 'foreman'
-gem 'activejob-scheduler'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'pg'
 gem 'rails', '~> 6.0.1'
@@ -49,6 +48,7 @@ end
 
 group :test do
   gem 'rubocop'
+  gem 'simplecov'
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
