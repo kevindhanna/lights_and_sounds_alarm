@@ -1,0 +1,9 @@
+.git
+.dockerignore
+.byebug_history
+log/*
+tmp/*
+coverage
+spec
+.rubocop.yml
+README.md
