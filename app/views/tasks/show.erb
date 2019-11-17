@@ -11,7 +11,12 @@
 <% end %>
 <br>
 <p>Light Group: <%= @task.light_group.name %></p>
-<p>Action: <%= @task.pretty_action %></p>
+<p>
+  Action: <%= @task.pretty_action %>
+  <br>
+  Duration: <%= @task.pretty_duration %>
+</p>
+
 <p>
   Scheduled:
   <br>

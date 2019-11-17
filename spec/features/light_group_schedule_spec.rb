@@ -1,6 +1,7 @@
 # frozen_string_literal: true
+require 'rails_helper'
 
-feature 'light group schedule' do
+RSpec.feature 'light group schedule' do
   context 'no schedules set' do
     scenario 'view schedules' do
       LightGroup.update_groups

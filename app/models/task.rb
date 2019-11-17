@@ -24,4 +24,13 @@ class Task < ApplicationRecord
     action.sub('_', ' ').capitalize
   end
 
+  def pretty_duration
+    self.duration < 60 ? unit = 'Second' : unit = 'Minute'
+    unit == 'Minute' ? time = self.duration / 60 : time = self.duration
+    string = "#{time} #{unit}"
+    string += 's' if time > 1
+
+    return string
+  end
+
 end

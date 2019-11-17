@@ -1,6 +1,7 @@
 # frozen_string_literal: true
+require 'rails_helper'
 
-feature 'list light groups' do
+RSpec.feature 'list light groups' do
   scenario 'user visits home page' do
     LightGroup.update_groups
     groups = group_names

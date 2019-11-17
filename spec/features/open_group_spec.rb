@@ -1,6 +1,7 @@
 # frozen_string_literal: true
+require 'rails_helper'
 
-feature 'view group lights' do
+RSpec.feature 'view group lights' do
   scenario 'open first group' do
     LightGroup.update_groups
     lights, _group = open_first_group

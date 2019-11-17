@@ -1,6 +1,7 @@
 # frozen_string_literal: true
+require 'rails_helper'
 
-feature 'set group schedule' do
+RSpec.feature 'set group schedule' do
   before :each do
     LightGroup.update_groups
   end
@@ -41,9 +42,12 @@ feature 'set group schedule' do
     fill_in 'Time', with: time
     fill_in 'Name', with: 'test task'
     fill_in 'Duration', with: '10'
-    select 'minutes', from: 'duration_units'
+    select 'Minutes', from: 'duration_units'
     choose('action_0')
     find_by_id('action_0').click
     click_button 'Submit'
+
+    click_link 'test task'
+    expect(page).to have_content('10 Minutes')
   end
 end

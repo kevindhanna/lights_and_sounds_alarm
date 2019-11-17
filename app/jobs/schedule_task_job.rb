@@ -8,3 +8,8 @@ class ScheduleTaskJob < ApplicationJob
     self.class.set(wait: RUN_EVERY).perform_later
   end
 end
+
+unless ENV['RAILS_ENV'] == 'test'
+  puts 'setting up task scheduler...'
+  ScheduleTaskJob.set(wait_until: Date.tomorrow.midnight).perform_later
+end

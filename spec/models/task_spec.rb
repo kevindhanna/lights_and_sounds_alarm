@@ -46,4 +46,22 @@ RSpec.describe Task, type: :model do
       expect(task.pretty_action).to eq 'Turn on'
     end
   end
+  
+  describe 'pretty_duration' do
+    it 'returns a nice string for duration' do
+      test_group = LightGroup.create(hue_id: 1, name: 'test_group')
+      task = Task.create(light_group_id: test_group.hue_id, action: 'turn_on', duration: 30)
+      expect(task.pretty_duration).to eq '30 Seconds'
+    end
+    it 'returns a nice string for duration' do
+      test_group = LightGroup.create(hue_id: 1, name: 'test_group')
+      task = Task.create(light_group_id: test_group.hue_id, action: 'turn_on', duration: 60)
+      expect(task.pretty_duration).to eq '1 Minute'
+    end
+    it 'returns a nice string for duration' do
+      test_group = LightGroup.create(hue_id: 1, name: 'test_group')
+      task = Task.create(light_group_id: test_group.hue_id, action: 'turn_on', duration: 300)
+      expect(task.pretty_duration).to eq '5 Minutes'
+    end
+  end
 end

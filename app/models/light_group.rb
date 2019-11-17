@@ -27,3 +27,6 @@ class LightGroup < ApplicationRecord
     LightGroup.hue_client.group(hue_id)
   end
 end
+
+puts 'setting up light groups...'
+LightGroup.update_groups

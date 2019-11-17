@@ -1,6 +1,7 @@
 # frozen_string_literal: true
+require 'rails_helper'
 
-feature 'view a task' do
+RSpec.feature 'view a task' do
   before :each do
     LightGroup.update_groups
   end
