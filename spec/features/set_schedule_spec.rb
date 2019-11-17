@@ -41,6 +41,7 @@ RSpec.feature 'set group schedule' do
     check day
     fill_in 'Time', with: time
     fill_in 'Name', with: 'test task'
+    fill_in 'Brightness', with: '100'
     fill_in 'Duration', with: '10'
     select 'Minutes', from: 'duration_units'
     choose('action_0')

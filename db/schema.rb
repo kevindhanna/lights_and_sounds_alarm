@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_17_183419) do
+ActiveRecord::Schema.define(version: 2019_11_17_193721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_11_17_183419) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigserial "light_group_id", null: false
     t.integer "duration"
+    t.integer "brightness"
     t.index ["light_group_id"], name: "index_tasks_on_light_group_id"
   end
 

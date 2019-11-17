@@ -28,12 +28,12 @@ RSpec.describe LightGroup, type: :model do
 
   describe 'state' do
     it 'passes the state to the Hue group' do
-      params = { on: true }
       allow(LightGroup).to receive(:hue_client) { hue_client }
       expect(hue_client).to receive(:group).with(light_group.hue_id)
-      expect(hue_group).to receive(:set_state).with(params)
+      expect(hue_group).to receive(:set_state).with(on: true, brightness: 0 )
+      expect(hue_group).to receive(:set_state).with({ brightness: 100 }, 60)
 
-      light_group.state(params)
+      light_group.state({ on: true }, duration: 60)
     end
   end
   describe 'lights' do

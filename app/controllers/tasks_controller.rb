@@ -14,13 +14,14 @@ class TasksController < ApplicationController
   def create
     duration = params['transition-duration'].to_i
     duration *= 60 if params['duration-units'] == 'minutes'
-    
+
     task = Task.create(
       name: params[:task_name],
       time: params[:time],
       days: binary_days(params),
       action: params[:group_action],
       duration: duration,
+      brightness: params[:brightness],
       light_group_id: params[:group_id]
     )
     

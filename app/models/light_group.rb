@@ -17,8 +17,13 @@ class LightGroup < ApplicationRecord
     hue_group.lights
   end
 
-  def state(params)
-    hue_group.set_state(params)
+  def state(params, duration: 0, brightness: 100)
+    return hue_group.set_state(params) unless duration > 0
+
+    if params[:on]
+      hue_group.set_state(on: true, brightness: 0)
+      hue_group.set_state({ brightness: brightness }, duration)
+    end
   end
 
   private
