@@ -25,8 +25,8 @@ class Task < ApplicationRecord
   end
 
   def pretty_duration
-    self.duration < 60 ? unit = 'Second' : unit = 'Minute'
-    unit == 'Minute' ? time = self.duration / 60 : time = self.duration
+    duration < 60 ? unit = 'Second' : unit = 'Minute'
+    unit == 'Minute' ? time = duration / 60 : time = duration
     string = "#{time} #{unit}"
     string += 's' if time > 1
 

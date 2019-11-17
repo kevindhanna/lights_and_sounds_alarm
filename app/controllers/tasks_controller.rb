@@ -12,9 +12,9 @@ class TasksController < ApplicationController
   end
 
   def create
-    puts params
     duration = params['transition-duration'].to_i
     duration *= 60 if params['duration-units'] == 'minutes'
+    
     task = Task.create(
       name: params[:task_name],
       time: params[:time],
