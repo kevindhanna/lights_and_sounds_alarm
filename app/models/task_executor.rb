@@ -1,7 +1,4 @@
-# frozen_string_literal: true
-
-class TaskExecutor
-  
+class TaskExecutor < ApplicationRecord
   ACTION_KEY = {
     'turn_off' => { on: false },
     'turn_on' => { on: true }
@@ -19,5 +16,4 @@ class TaskExecutor
 
     :fail
   end
-
 end

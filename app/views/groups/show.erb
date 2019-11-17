@@ -1,0 +1,20 @@
+<h1><%= @group.name %></h1>
+
+<% if @group.tasks.length.zero? %>
+  No Schedules set
+<% else %>
+  <ul>
+    <% @group.tasks.each do |task| %>
+    <li><a href="/groups/<%= @group.hue_id %>/tasks/<%= task.id %>"><%= task.name %></a></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<br>
+<a href='/groups/<%= @group.hue_id %>/tasks/new'>Schedule Task</a>
+<br>
+<% @group.lights.each do |light| %>
+  <div class='light'>
+    <%= light.name %>
+  </div>
+<% end %>

@@ -1,0 +1,21 @@
+<% if flash[:test_result] %>
+  <div class="notice"><%= flash[:test_result] %></div>
+<% end %>
+<h1><%= @task.name %></h1>
+<a href=<%= test_group_task_path %>>Test</a>
+<br>
+<% if @result == :success %>
+  Tested OK!
+<% elsif @result %>
+  Something went wrong...
+<% end %>
+<br>
+<p>Light Group: <%= @task.light_group.name %></p>
+<p>Action: <%= @task.pretty_action %></p>
+<p>
+  Scheduled:
+  <br>
+  <%= "#{@days}, start time: #{@task.time}" %>
+  <br>
+  Created: <%= @task.created_at %>
+</p>

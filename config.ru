@@ -1,6 +1,6 @@
-# frozen_string_literal: true
+# This file is used by Rack-based servers to start the application.
 
-require_relative 'app.rb'
+require_relative 'config/environment'
 LightGroup.update_groups
 
-run LightsAndSoundsAlarm
+run Rails.application

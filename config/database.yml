@@ -1,27 +1,20 @@
-default: 
+default: &default
   database: lights_and_sounds_dev
   adapter: postgresql
   encoding: unicode
-  pool: 2
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
 development:
-  database: lights_and_sounds_dev
-  adapter: postgresql
-  encoding: unicode
-  pool: 2
-  timeout: 5000
+  <<: *default
 
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
 test:
+  <<: *default
   database: lights_and_sounds_test
-  adapter: postgresql
-  encoding: unicode
-  pool: 2
-  timeout: 5000
 
 production:
+  <<: *default
   database: lights_and_sounds
-  adapter: postgresql
-  encoding: unicode
-  pool: 2
-  timeout: 5000

@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-class LightGroup < ActiveRecord::Base
+class LightGroup < ApplicationRecord
   has_many :tasks, primary_key: :hue_id
 
   def self.hue_client
