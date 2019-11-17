@@ -30,3 +30,7 @@
   <br>
   Created: <%= @task.created_at %>
 </p>
+
+<%= form_with model:@task, url: group_task_url, method: :delete  do |f| %>
+<%= f.submit 'Delete',class: 'btn btn-danger' %>
+<% end %>

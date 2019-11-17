@@ -37,6 +37,11 @@ class TasksController < ApplicationController
     redirect_to redirect_link
   end
 
+  def destroy
+    Task.find(params[:id]).destroy
+    redirect_to "/groups/#{params[:group_id]}"
+  end
+
   private 
 
   def binary_days(params)
