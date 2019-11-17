@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe Task do
   it 'knows its light_group' do
     test_group = LightGroup.create(hue_id: 1, name: 'test_group')
@@ -28,7 +30,7 @@ describe Task do
       expect(Task.pretty_days(64)).to eq 'Sunday'
     end
     it 'returns "Monday, Wednesday Friday" when passed 10101' do
-      expect(Task.pretty_days(21)).to eq "Monday, Wednesday, Friday"
+      expect(Task.pretty_days(21)).to eq 'Monday, Wednesday, Friday'
     end
   end
 

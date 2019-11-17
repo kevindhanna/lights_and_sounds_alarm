@@ -1,11 +1,11 @@
-def get_group_names
+# frozen_string_literal: true
+
+def group_names
   client = Hue::Client.new
-  client.groups.map do |group|
-    group.name
-  end
+  client.groups.map(&:name)
 end
 
-def get_groups
+def groups
   client = Hue::Client.new
   client.groups
 end

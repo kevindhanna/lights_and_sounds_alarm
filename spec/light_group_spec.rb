@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 describe LightGroup do
   let(:hue_group2) { double(:hue_group, name: 'test2', id: 2) }
   let(:hue_group) { double(:hue_group, name: 'test', id: 1) }
@@ -23,15 +25,15 @@ describe LightGroup do
       expect(LightGroup.find_by(hue_id: 2).name).to eq 'test2'
     end
   end
-  
-  describe 'set_state' do
+
+  describe 'state' do
     it 'passes the state to the Hue group' do
-      params = {on: true}
+      params = { on: true }
       allow(LightGroup).to receive(:hue_client) { hue_client }
       expect(hue_client).to receive(:group).with(light_group.hue_id)
       expect(hue_group).to receive(:set_state).with(params)
-      
-      light_group.set_state(params)
+
+      light_group.state(params)
     end
   end
   describe 'lights' do

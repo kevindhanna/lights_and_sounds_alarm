@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def hue_client
   Hue::Client.new
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 feature 'test a task' do
   before :each do
     LightGroup.update_groups

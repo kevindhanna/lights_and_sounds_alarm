@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './config/environment.rb'
 
 class LightsAndSoundsAlarm < Sinatra::Base
@@ -9,7 +11,7 @@ class LightsAndSoundsAlarm < Sinatra::Base
     @page = :home
     erb :template
   end
-  
+
   get '/groups/:id' do
     @group = LightGroup.find_by(hue_id: params[:id])
     @page = :'groups/group'
@@ -23,7 +25,7 @@ class LightsAndSoundsAlarm < Sinatra::Base
     session[:test_result] = result
     redirect redirect_link
   end
-  
+
   get '/groups/:id/tasks/set' do
     @group = LightGroup.find_by(hue_id: params[:id])
     @page = :'groups/tasks/set'
