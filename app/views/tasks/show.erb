@@ -14,7 +14,9 @@
 <p>
   Action: <%= @task.pretty_action %>
   <br>
-  Duration: <%= @task.pretty_duration %>
+  <% if @task.duration %>
+    Duration: <%= @task.pretty_duration %>
+  <% end%>
 </p>
 
 <p>
