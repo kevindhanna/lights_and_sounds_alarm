@@ -31,4 +31,19 @@ feature 'set group schedule' do
     expect(page).not_to have_content 'No Schedules set'
     expect(page).to have_link 'test task'
   end
+
+  scenario 'set schedule with transition time' do
+    open_first_group
+    time = '11:11'
+    day = Date.today.strftime('%A')
+    click_link 'Schedule Task'
+    check day
+    fill_in 'Time', with: time
+    fill_in 'Name', with: 'test task'
+    fill_in 'Duration', with: '10'
+    select 'minutes', from: 'duration_units'
+    choose('action_0')
+    find_by_id('action_0').click
+    click_button 'Submit'
+  end
 end

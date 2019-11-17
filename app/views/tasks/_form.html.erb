@@ -4,7 +4,6 @@
     <input id="task_name" name="task_name" placeholder="Turn Shit On" type="text" class="form-control">
   </div>
   <div class="form-group">
-    <label>Checkboxes</label> 
     <div>
       <div class="custom-control custom-checkbox custom-control-inline">
         <input name="monday" id="checkbox_0" type="checkbox" class="custom-control-input" id='1' value="1"> 
@@ -37,23 +36,39 @@
     </div>
   </div>
   <div class='form-group'>
-    <label for='time'>Time</label>
+    <label for='time'>Time: </label>
     <input type="time" name="time" id='time'>
   </div> 
   <div class="form-group">
-      <label>Action</label> 
-      <div>
-        <div class="custom-control custom-radio custom-control-inline">
-          <input name="group_action" id="action_0" type="radio" class="custom-control-input" value="turn_on"> 
-          <label for="action_0" class="custom-control-label">Turn On</label>
-        </div>
-        <div class="custom-control custom-radio custom-control-inline">
-          <input name="group_action" id="action_1" type="radio" class="custom-control-input" value="turn_off"> 
-          <label for="action_1" class="custom-control-label">Turn Off</label>
-        </div>
+    <label>Action</label> 
+    <div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input name="group_action" id="action_0" type="radio" class="custom-control-input" value="turn_on"> 
+        <label for="action_0" class="custom-control-label">Turn On</label>
       </div>
-    </div> 
+      <div class="custom-control custom-radio custom-control-inline">
+        <input name="group_action" id="action_1" type="radio" class="custom-control-input" value="turn_off"> 
+        <label for="action_1" class="custom-control-label">Turn Off</label>
+      </div>
+    </div>
+  </div> 
+    <label for="transition-duration">Transition Duration</label> 
+  <div class='row'>
+    <div class='col-s'>
+      <div class="form-group">
+        <input id="transition-duration" name="transition-duration" placeholder="60" type="text" class="form-control">
+      </div> 
+    </div>
+    <div class='col'>
+      <div>
+        <select id="select" name="select" class="custom-select">
+          <option value="seconds">Seconds</option>
+          <option value="minutes">Minutes</option>
+        </select>
+      </div>
+    </div>
+  </div>
   <div class="form-group">
     <button name="submit" type="submit" class="btn btn-primary">Submit</button>
   </div>
-<% end %>
+  <% end %>

@@ -19,7 +19,8 @@ class TasksController < ApplicationController
       action: params[:group_action],
       light_group_id: params[:group_id]
     )
-    TaskScheduler.scehdule_task(task)
+    
+    TaskScheduler.scehdule_task(task) unless ENV['RAILS_ENV'] == 'test'
     redirect_to "/groups/#{params[:group_id]}"
   end
 
