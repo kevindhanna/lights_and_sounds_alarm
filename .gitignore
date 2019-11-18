@@ -34,3 +34,5 @@ yarn-debug.log*
 .yarn-integrity
 node_modules
 coverage
+
+/config/credentials/production.key
