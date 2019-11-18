@@ -4,9 +4,11 @@ services:
   postgres:
     image: 'postgres:10.3-alpine'
     environment:
-      - POSTGRES_USER:'postgres'
-      - POSTGRES_PASSWORD:'postgres'
-      - POSTGRES_DB:'lights_and_sounds'
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=lights_and_sounds
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
 
   redis:
     image: 'redis:4.0-alpine'
@@ -14,7 +16,7 @@ services:
 
   website:
     build: .
-    command: bundle exec rails s -p 80 -b '0.0.0.0'
+    command: sh -c "DISABLE_DATABASE_ENVIRONMENT_CHECK=1 rails db:setup && bundle exec rails s -p 80 -b '0.0.0.0'"
     depends_on:
       - 'postgres'
       - 'redis'

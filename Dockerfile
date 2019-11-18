@@ -16,3 +16,5 @@ ENV PORT 80
 COPY . /app
 
 LABEL maintainer="Kevin Hanna <kevindhanna@live.com>"
+
+# RUN bin/rails db:setup

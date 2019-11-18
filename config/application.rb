@@ -22,4 +22,5 @@ module LightsAndSoundsAlarm
     config.log_tags  = [:subdomain, :uuid]
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
+
 end

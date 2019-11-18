@@ -20,3 +20,4 @@ production:
   database: lights_and_sounds
   username: postgres
   password: postgres
+  host: postgres

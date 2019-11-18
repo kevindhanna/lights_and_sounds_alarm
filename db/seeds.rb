@@ -6,4 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-LightGroup.update_groups
+puts 'Setting up Hue'
+begin
+  LightGroup.update_groups
+rescue StandardError => e
+  if e.message.include?('button')
+    puts 'Push button now!'
+    sleep 10
+    LightGroup.update_groups
+    puts 'Done!'
+  else
+    puts 'Something went wrong:'
+    puts e.message
+  end
+end
