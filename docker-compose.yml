@@ -20,7 +20,7 @@ services:
     depends_on:
       - 'postgres'
       - 'redis'
-      - 'sidekiq'
+      # - 'sidekiq'
     ports:
       - "80:80"
 
