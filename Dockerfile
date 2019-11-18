@@ -1,13 +1,14 @@
 FROM ruby:2.6.3-alpine
 
-RUN apk update && apk add --update build-base nodejs postgresql-dev postgresql-client curl-dev tzdata
+RUN apk update && apk add --update yarn build-base nodejs postgresql-dev postgresql-client curl-dev tzdata
 
 RUN mkdir /app
 WORKDIR /app
 
-COPY Gemfile Gemfile.lock ./
+COPY Gemfile Gemfile.lock package.json yarn.lock ./
 RUN gem install bundler
 RUN bundle install --binstubs --without development test
+RUN yarn
 
 ENV RAILS_ENV production 
 ENV RACK_ENV production
