@@ -16,7 +16,7 @@ services:
 
   website:
     build: .
-    command: sh -c "DISABLE_DATABASE_ENVIRONMENT_CHECK=1 rails db:setup && bundle exec rails s -p 80 -b '0.0.0.0'"
+    command: sh -c "RAILS_MASTER_KEY=25ebe25959cfe7f7e061b50405c48226 DISABLE_DATABASE_ENVIRONMENT_CHECK=1 rails db:setup && RAILS_ENV=production bundle exec rake assets:precompile && bundle exec rails s -p 80 -b '0.0.0.0'"
     depends_on:
       - 'postgres'
       - 'redis'
@@ -29,4 +29,4 @@ services:
       - 'postgres'
       - 'redis'
     build: .
-    command: bundle exec sidekiq
+    command: sh -c "RAILS_MASTER_KEY=25ebe25959cfe7f7e061b50405c48226 bundle exec sidekiq"
