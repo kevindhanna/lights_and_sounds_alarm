@@ -11,7 +11,7 @@ class TaskExecutor < ApplicationRecord
   def self.execute(task)
     light_group = light_group_class.find_by(hue_id: task.light_group_id)
     action = ACTION_KEY[task.action]
-    result = light_group.state(action, duration: task.duration, brightness: task.brightness)
+    puts result = light_group.state(action, duration: task.duration, brightness: task.brightness)
     return :success if result.first['success']
 
     :fail
