@@ -16,7 +16,7 @@ services:
 
   website:
     build: .
-    command: sh -c "RAILS_MASTER_KEY=25ebe25959cfe7f7e061b50405c48226 DISABLE_DATABASE_ENVIRONMENT_CHECK=1 rails db:setup && RAILS_ENV=production RAILS_LOG_TO_STDOUT=true bundle exec rake assets:precompile && "
+    command: sh -c "RAILS_MASTER_KEY=25ebe25959cfe7f7e061b50405c48226 DISABLE_DATABASE_ENVIRONMENT_CHECK=1 rails db:setup && RAILS_ENV=production RAILS_LOG_TO_STDOUT=true bundle exec rake assets:precompile && foreman start"
     depends_on:
       - 'postgres'
       - 'redis'
