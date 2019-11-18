@@ -1,11 +1,11 @@
 default: &default
-  database: lights_and_sounds_dev
   adapter: postgresql
   encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  pool: 2
   timeout: 5000
 
 development:
+  database: lights_and_sounds_dev
   <<: *default
 
 # Warning: The database defined as "test" will be erased and
@@ -18,3 +18,5 @@ test:
 production:
   <<: *default
   database: lights_and_sounds
+  username: postgres
+  password: postgres
