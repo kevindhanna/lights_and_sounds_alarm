@@ -16,7 +16,7 @@ services:
 
   website:
     build: .
-    command: sh -c "bin/rails secrets:setup && DISABLE_DATABASE_ENVIRONMENT_CHECK=1 rails db:setup && bundle exec rails s -p 80 -b '0.0.0.0'"
+    command: sh -c "DISABLE_DATABASE_ENVIRONMENT_CHECK=1 rails db:setup && bundle exec rails s -p 80 -b '0.0.0.0'"
     depends_on:
       - 'postgres'
       - 'redis'
